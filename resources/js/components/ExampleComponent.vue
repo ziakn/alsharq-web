@@ -4,7 +4,6 @@
      <v-container fluid>
       <v-card  class="mx-auto">
         <v-app-bar dark  color="primary">
-        <v-app-bar-nav-icon></v-app-bar-nav-icon>
         <v-toolbar-title>Al - Sharq</v-toolbar-title>
         <v-spacer></v-spacer>
         <v-toolbar-title>{{dataHelper}}   </v-toolbar-title>
@@ -19,13 +18,7 @@
 							                	clearable
                                 filled
 								                @change="getPages"
-                            ></v-select></v-toolbar-title>
-
-       <v-btn icon>
-    
-      </v-btn>
-                                                    
-                      
+                            ></v-select></v-toolbar-title>         
     </v-app-bar>
     <v-container>
       <v-row >
