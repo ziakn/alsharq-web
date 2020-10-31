@@ -12,6 +12,14 @@ require('es6-promise').polyfill();
 import CKEditor from 'ckeditor4-vue';
 Vue.use( CKEditor );
 
+import VueProgressBar from 'vue-progressbar'
+Vue.use(VueProgressBar, {
+  color: 'rgb(2, 2, 111)',
+  failedColor: 'red',
+  thickness: '5px'
+
+})
+
 router.afterEach((to, from) => {
     Vue.nextTick(() => {
         document.title = to.meta.title ? to.meta.title : 'Al-Sharq';

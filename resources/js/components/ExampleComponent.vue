@@ -35,7 +35,7 @@
                   <v-img
                     class="white--text align-end"
                     height="200px"
-                    src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+                    :src="'https://alsharqadmin.tiollo.com'+data.image"
                   >
                     <v-card-title>{{ data.title }}</v-card-title>
                   </v-img>
@@ -75,7 +75,8 @@ export default {
     pageCount: 2,
     filters: {
       page: 1,
-      show: 20,
+      show: 6,
+      category_id:'',
     },
   }),
   components: {},
@@ -104,6 +105,7 @@ export default {
 
     async getPages() {
       this.start();
+      this.$Progress.start()
       try {
         let { data } = await axios({
           method: "get",
@@ -114,8 +116,10 @@ export default {
         this.itemsPerPage = data.per_page;
         this.pageCount = data.last_page;
         this.filters.page = data.current_page;
+        this.$Progress.finish()
       } catch (e) {
         this.fail();
+        this.$Progress.fail()
       } finally {
         this.finish();
       }

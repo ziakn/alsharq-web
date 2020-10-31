@@ -49,6 +49,7 @@
 
     <div id="app">
         <z-dashboard></z-dashboard>
+        <vue-progress-bar></vue-progress-bar>
     </div>
     <script>
         window.addEventListener('load', function() {

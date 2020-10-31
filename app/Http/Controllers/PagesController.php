@@ -32,7 +32,7 @@ class PagesController extends Controller
         }
         else
         {
-            $data=$data->paginate(20);
+            $data=$data->paginate(6);
         }
         return $data;
     }
