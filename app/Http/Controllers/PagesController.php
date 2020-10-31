@@ -18,7 +18,7 @@ class PagesController extends Controller
     public function index(Request $request)
     {
        
-        $data=Pages::orderBy('id','DESC');
+        $data=Pages::orderBy('id','DESC')->where('status',1);
         if(isset($request->category_id) && !empty($request->category_id))
         {
             $data=$data->where('category_id', $request->category_id);

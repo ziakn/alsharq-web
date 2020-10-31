@@ -7,8 +7,9 @@
         <v-app-bar-nav-icon></v-app-bar-nav-icon>
         <v-toolbar-title>Al - Sharq</v-toolbar-title>
         <v-spacer></v-spacer>
-      <v-row>
-<v-select
+        <v-toolbar-title>{{dataHelper}}   </v-toolbar-title>
+        <v-spacer></v-spacer>
+          <v-toolbar-title>  <v-select
                                 v-model="filters.category_id"
                                 :items="dataCategory"
                                 item-text="name"
@@ -18,8 +19,11 @@
 							                	clearable
                                 filled
 								                @change="getPages"
-                            ></v-select>    
-      </v-row>
+                            ></v-select></v-toolbar-title>
+
+       <v-btn icon>
+    
+      </v-btn>
                                                     
                       
     </v-app-bar>
@@ -34,7 +38,7 @@
                  
                       <v-card-text class="text--primary">
                         <v-card-subtitle>Body</v-card-subtitle>
-                        <ckeditor :value="data.body" :config="editorConfig" :read-only="true" ></ckeditor>
+                        <div v-html="data.body"></div>
                       </v-card-text>
 
                       
@@ -65,6 +69,7 @@ export default {
     items: [],
     dataList: [],
     dataCategory:[],
+    dataHelper:'',
     itemsPerPage:1,
         pageCount:2,
         filters:
@@ -72,9 +77,7 @@ export default {
 			page: 1,
       show: 20,
         },
-         editorConfig: {
-            toolbar: [ [  ] ]
-        }
+        
   }),
   components: {
    
@@ -94,6 +97,18 @@ export default {
           		url: "/app/category"
         		});
         		this.dataCategory = data;
+			} 
+			catch (e) 
+			{
+
+      }
+         try 
+			 {
+        		let { data } = await axios({
+          		method: "get",
+          		url: "/app/helper"
+        		});
+        		this.dataHelper = data;
 			} 
 			catch (e) 
 			{

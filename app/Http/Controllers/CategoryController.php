@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Category;
 use Auth;
 use DB;
+
 class CategoryController extends Controller
 {
 

@@ -1987,6 +1987,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1994,14 +1998,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       items: [],
       dataList: [],
       dataCategory: [],
+      dataHelper: '',
       itemsPerPage: 1,
       pageCount: 2,
       filters: {
         page: 1,
         show: 20
-      },
-      editorConfig: {
-        toolbar: [[]]
       }
     };
   },
@@ -2014,7 +2016,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var _yield$axios, data;
+        var _yield$axios, data, _yield$axios2, _data;
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
@@ -2039,21 +2041,40 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context.t0 = _context["catch"](0);
 
               case 10:
+                _context.prev = 10;
+                _context.next = 13;
+                return axios({
+                  method: "get",
+                  url: "/app/helper"
+                });
+
+              case 13:
+                _yield$axios2 = _context.sent;
+                _data = _yield$axios2.data;
+                _this.dataHelper = _data;
+                _context.next = 20;
+                break;
+
+              case 18:
+                _context.prev = 18;
+                _context.t1 = _context["catch"](10);
+
+              case 20:
                 _this.getPages();
 
-              case 11:
+              case 21:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 8]]);
+        }, _callee, null, [[0, 8], [10, 18]]);
       }))();
     },
     getPages: function getPages() {
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        var _yield$axios2, data;
+        var _yield$axios3, data;
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
@@ -2070,36 +2091,34 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 });
 
               case 4:
-                _yield$axios2 = _context2.sent;
-                data = _yield$axios2.data;
+                _yield$axios3 = _context2.sent;
+                data = _yield$axios3.data;
                 _this2.dataList = data.data;
                 _this2.itemsPerPage = data.per_page;
                 _this2.pageCount = data.last_page;
                 _this2.filters.page = data.current_page;
-                CKEDITOR.instances['body'].setData(_this2.dataList.body);
-                _this2.items.body = CKEDITOR.instances['body'].getData();
-                _context2.next = 17;
+                _context2.next = 15;
                 break;
 
-              case 14:
-                _context2.prev = 14;
+              case 12:
+                _context2.prev = 12;
                 _context2.t0 = _context2["catch"](1);
 
                 _this2.fail();
 
-              case 17:
-                _context2.prev = 17;
+              case 15:
+                _context2.prev = 15;
 
                 _this2.finish();
 
-                return _context2.finish(17);
+                return _context2.finish(15);
 
-              case 20:
+              case 18:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, null, [[1, 14, 17, 20]]);
+        }, _callee2, null, [[1, 12, 15, 18]]);
       }))();
     }
   }
@@ -45042,8 +45061,14 @@ var render = function() {
                       _vm._v(" "),
                       _c("v-spacer"),
                       _vm._v(" "),
+                      _c("v-toolbar-title", [
+                        _vm._v(_vm._s(_vm.dataHelper) + "   ")
+                      ]),
+                      _vm._v(" "),
+                      _c("v-spacer"),
+                      _vm._v(" "),
                       _c(
-                        "v-row",
+                        "v-toolbar-title",
                         [
                           _c("v-select", {
                             attrs: {
@@ -45066,7 +45091,9 @@ var render = function() {
                           })
                         ],
                         1
-                      )
+                      ),
+                      _vm._v(" "),
+                      _c("v-btn", { attrs: { icon: "" } })
                     ],
                     1
                   ),
@@ -45112,11 +45139,9 @@ var render = function() {
                                     [
                                       _c("v-card-subtitle", [_vm._v("Body")]),
                                       _vm._v(" "),
-                                      _c("ckeditor", {
-                                        attrs: {
-                                          value: data.body,
-                                          config: _vm.editorConfig,
-                                          "read-only": true
+                                      _c("div", {
+                                        domProps: {
+                                          innerHTML: _vm._s(data.body)
                                         }
                                       })
                                     ],

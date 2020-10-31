@@ -20,6 +20,7 @@ Route::get('/', function () {
 Route::prefix('/app')->group(function () {
     Route::resource('/category', 'CategoryController');
     Route::resource('/pages', 'PagesController');
+    Route::resource('/helper', 'CustomeHelperController');
 });
 
 
