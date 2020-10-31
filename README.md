@@ -13,7 +13,7 @@ This README would normally document whatever steps are necessary to get your app
 * install repositry link 
 * download node module in your system
 * download Composer in your system
-* open terminal and go to {Pizza Web App Backend} folder or simply open VSCODE Terminal
+* open terminal and go to Alsharq Web folder or simply open VSCODE Terminal
 * npm install
 * cp.env.example .env
 * composer update
