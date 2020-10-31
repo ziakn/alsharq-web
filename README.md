@@ -12,7 +12,7 @@ This README would normally document whatever steps are necessary to get your app
 * The Alsharq Web App 
 * install repositry link 
 * download node module in your system
-* download Composer in your system
+* download Composer and install in your system
 * open terminal and go to Alsharq Web folder or simply open VSCODE Terminal
 * npm install
 * cp.env.example .env
@@ -28,6 +28,7 @@ This README would normally document whatever steps are necessary to get your app
 ### For Online Server deployement ###
 * npm run production
 * if you are deployin on server ,, after uploading to server go inside public folder  delete storage folder
+* uncomment the url /foo
 * run www.yourdomain.com/foo
 
 ## Link ##
