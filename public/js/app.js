@@ -1984,6 +1984,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1991,7 +1999,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       items: [],
       dataList: [],
       dataCategory: [],
-      dataHelper: '',
+      dataHelper: "",
       itemsPerPage: 1,
       pageCount: 2,
       filters: {
@@ -40283,7 +40291,7 @@ var render = function() {
                       _c("v-spacer"),
                       _vm._v(" "),
                       _c("v-toolbar-title", [
-                        _vm._v(_vm._s(_vm.dataHelper) + "   ")
+                        _vm._v(_vm._s(_vm.dataHelper) + " ")
                       ]),
                       _vm._v(" "),
                       _c("v-spacer"),
